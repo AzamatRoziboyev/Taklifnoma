@@ -8,7 +8,7 @@ function openEnvelope() {
   
   // Musiqani ijro etish
   bgMusic.play().then(() => {
-    musicBtn.innerText = "⏸️";
+    musicBtn.innerText = "⏸";
   }).catch(err => {
     console.log("Audio ijro etishda xatolik:", err);
   });
@@ -18,10 +18,10 @@ function openEnvelope() {
 function toggleMusic() {
   if (bgMusic.paused) {
     bgMusic.play();
-    musicBtn.innerText = "⏸️";
+    musicBtn.innerText = "⏸";
   } else {
     bgMusic.pause();
-    musicBtn.innerText = "▶️";
+    musicBtn.innerText = "▶";
   }
 }
 
