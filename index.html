@@ -1,0 +1,116 @@
+[9/2/2026 9:31 PM] roziboyev_04: <!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taklifnoma — Samandar & Dildora</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Musiqa manbasi -->
+  <audio id="bgMusic" loop>
+    <source src="Bolalar Kel yashaylik biz birga (1).mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    
+    <!-- 1. KONVERT EKRANI -->
+    <div id="envelope-screen" class="screen">
+      <div class="lang-switch">
+        <span class="active">UZ</span> <span>EN</span> <span>RU</span>
+      </div>
+      <div class="envelope">
+        <div class="lace-border"></div>
+        <div class="seal" onclick="openEnvelope()">
+          <span class="seal-icon">🌿</span>
+        </div>
+        <p class="tap-text">OCHISH UCHUN BOSING</p>
+      </div>
+    </div>
+
+    <!-- 2. ASOSIY TAKLIFNOMA EKRANI -->
+    <div id="main-screen" class="screen hidden">
+      
+      <!-- Musiqa tugmasi (pauza/play) -->
+      <button id="musicToggleBtn" class="music-control-btn" onclick="toggleMusic()">⏸️</button>
+
+      <!-- Muqova -->
+      <div class="hero-section">
+        <h1 class="names">Samandar<br>&<br>Dildora</h1>
+        <p class="scroll-down">PASTGA SURING <span>↓</span></p>
+      </div>
+
+      <!-- Sana bo'limi -->
+      <div class="card-section">
+        <p class="sub-title">Davom etish uchun barcha daftarlarni oching</p>
+        <h2>Sanani oching</h2>
+        <p class="small-note">SANANI BILISH UCHUN QIRING</p>
+        
+        <div class="scratch-coins">
+          <button class="coin" onclick="revealDate(1)">✦</button>
+          <button class="coin" onclick="revealDate(2)">✦</button>
+          <button class="coin" onclick="revealDate(3)">✦</button>
+        </div>
+
+        <div id="revealed-date" class="date-display hidden">
+          <div class="date-box"><span>22</span><span>Sentabr</span><span>2026</span></div>
+          <h3>SESHANBA<br>22 SENTABR 2026</h3>
+        </div>
+      </div>
+
+      <!-- Taklif matni -->
+      <div class="card-section message-card">
+        <h2>Aziz yaqinlarimiz!</h2>
+        <p>Sizni oilaviy baxtimiz boshlanadigan eng quvonchli kunimizda biz bilan birga bo'lishga taklif etamiz. Sizning tashrifingiz bu kunni yanada unutilmas qiladi.</p>
+      </div>
+
+      <!-- Qachon va qayerda -->
+      <div class="card-section">
+        <h2>Qachon va qayerda</h2>
+        <div class="venue-image">
+          <div class="hall-illustration">🏛</div>
+        </div>
+        <h3 class="hall-title">JALILBEK TO'YXONASI</h3>
+        <p class="location-text">Xorazm v., Hazorasp tumani, Muxomon MFY</p>
+        <p class="time-text">18:00</p>
+
+        <div class="map-buttons">
+          <a href="https://yandex.uz/maps/org/jalilbek_to_yxona/105324835948/" target="_blank" class="btn-map">Yandex Xaritalar</a>
+          <a href="https://www.google.com/maps/search/Jalilbek+toyxonasi+Hazorasp" target="_blank" class="btn-map">Google Xaritalar</a>
+        </div>
+      </div>
+
+      <!-- To'yona bo'limi -->
+      <div class="card-section toyona-card">
+        <h2>To'yona</h2>
+        <p>Agar istasangiz, to'yonani kuyov kartasiga yuborishingiz mumkin:</p>
+        
+        <div class="card-info">
+          <p class="label">QABUL QILUVCHI</p>
+          <p class="val">Samandar</p>
+          <p class="label">KARTA RAQAMI</p>
+          <p class="card-number" id="cardNumber">8600 0000 0000 0000</p>
+          <button class="btn-copy" onclick="copyCard()">RAQAMNI NUSXALASH</button>
+        </div>
+      </div>
+[9/2/2026 9:31 PM] roziboyev_04: <!-- Taymer -->
+      <div class="card-section timer-section">
+        <h2>To'yimizgacha</h2>
+        <div class="timer">
+          <div class="time-box"><span id="days">00</span><p>KUN</p></div>
+          <div class="time-box"><span id="hours">00</span><p>SOAT</p></div>
+          <div class="time-box"><span id="minutes">00</span><p>DAQIQA</p></div>
+          <div class="time-box"><span id="seconds">00</span><p>SONIYA</p></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="index.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #f4ece1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  background: #fdfbf7;
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.screen {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Musiqa boshqaruv tugmasi */
+.music-control-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #d4c3b0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Lang Switch */
+.lang-switch {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  font-size: 12px;
+  color: #777;
+}
+
+.lang-switch .active {
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+}
+
+/* Envelope Screen */
+.envelope {
+  margin-top: 100px;
+  background: #f1e4d3;
+  border: 1px solid #d4c3b0;
+  border-radius: 12px;
+  padding: 60px 20px;
+  position: relative;
+}
+
+.seal {
+  width: 70px;
+  height: 70px;
+  background: #b5a48b;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+.seal:hover {
+  transform: scale(1.05);
+}
+
+.tap-text {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #666;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 60px 0;
+  background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80') center/cover;
+  border-radius: 16px;
+  color: #4a3e3d;
+}
+
+.names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 52px;
+  line-height: 1.2;
+}
+
+.scroll-down {
+  margin-top: 40px;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* Card Section */
+.card-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px 20px;
+  margin-top: 25px;
+  border: 1px solid #eae2d6;
+}
+
+.card-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  color: #5a4b41;
+  margin-bottom: 10px;
+}
+
+.sub-title, .small-note {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+/* Coins / Scratch */
+.scratch-coins {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.coin {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37, #f3e5ab);
+  border: none;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.date-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.date-box span {
+  background: #f5efe6;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.map-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-map, .btn-copy {
+  flex: 1;
+  padding: 10px;
+  background: #5c6b57;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Toyona */
+.toyona-card .card-info {
+  background: #f9f6f0;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.label {
+  font-size: 10px;
+  color: #888;
+}
+
+.val, .card-number {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Timer */
+.timer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.time-box {
+  background: #f5efe6;
+  padding: 10px;
+  border-radius: 8px;
+  width: 22%;
+}
+
+.time-box span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.time-box p {
+  font-size: 9px;
+  color: #777;
+}
