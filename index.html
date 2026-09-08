@@ -16,17 +16,21 @@
 
   <div class="container">
     
-    <!-- 1. KONVERT EKRANI -->
+    <!-- 1. KONVERT EKRANI (YANGILANGAN QISMI) -->
     <div id="envelope-screen" class="screen">
       <div class="lang-switch">
         <span class="active">UZ</span> <span>EN</span> <span>RU</span>
       </div>
-      <div class="envelope">
-        <div class="lace-border"></div>
-        <div class="seal" onclick="openEnvelope()">
-          <span class="seal-icon">🌿</span>
+      
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelopeCard">
+          <div class="flap"></div>
+          <div class="pocket"></div>
+          <div class="seal" onclick="openEnvelope()">
+            <span class="seal-icon">🌿</span>
+          </div>
         </div>
-        <p class="tap-text">OCHISH UCHUN BOSING</p>
+        <button class="open-envelope-btn" onclick="openEnvelope()">OCHISH UCHUN BOSING</button>
       </div>
     </div>
 

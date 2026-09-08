@@ -7,47 +7,78 @@ function openEnvelope() {
   document.getElementById('main-screen').classList.remove('hidden');
   
   // Musiqani ijro etish
-  bgMusic.play().then(() => {
-    musicBtn.innerText = "⏸";
-  }).catch(err => {
-    console.log("Audio ijro etishda xatolik:", err);
-  });
+  if (bgMusic) {
+    bgMusic.play().then(() => {
+      if (musicBtn) musicBtn.innerText = "⏸";
+    }).catch(err => {
+      console.log("Audio ijro etishda xatolik:", err);
+    });
+  }
 }
 
 // Musiqani to'xtatish yoki qayta yoqish
 function toggleMusic() {
+  if (!bgMusic) return;
+  
   if (bgMusic.paused) {
     bgMusic.play();
-    musicBtn.innerText = "⏸";
+    if (musicBtn) musicBtn.innerText = "⏸";
   } else {
     bgMusic.pause();
-    musicBtn.innerText = "▶";
+    if (musicBtn) musicBtn.innerText = "▶";
   }
 }
 
-// Sanani ko'rsatish
-let clicks = 0;
+// Sanani ko'rsatish (Tanga bosilganda yashirish bilan)
+let clickedCoins = new Set();
+
 function revealDate(id) {
-  clicks++;
-  if (clicks >= 3) {
-    document.querySelector('.scratch-coins').style.display = 'none';
-    document.getElementById('revealed-date').classList.remove('hidden');
+  // Bosilgan tangani yashirish
+  const coins = document.querySelectorAll('.scratch-coins .coin');
+  if (coins[id - 1]) {
+    coins[id - 1].style.visibility = 'hidden';
+  }
+  
+  clickedCoins.add(id);
+
+  // Barcha 3 ta tanga bosilganida sanani ochish
+  if (clickedCoins.size >= 3) {
+    setTimeout(() => {
+      const scratchCoinsContainer = document.querySelector('.scratch-coins');
+      if (scratchCoinsContainer) scratchCoinsContainer.style.display = 'none';
+      
+      const revealedDate = document.getElementById('revealed-date');
+      if (revealedDate) revealedDate.classList.remove('hidden');
+    }, 300);
   }
 }
 
 // Karta raqamini nusxalash
 function copyCard() {
-  const cardNum = document.getElementById('cardNumber').innerText;
-  navigator.clipboard.writeText(cardNum.replace(/\s+/g, ''));
-  alert("Karta raqami nusxalandi!");
+  const cardNumEl = document.getElementById('cardNumber');
+  if (!cardNumEl) return;
+  
+  const cardNum = cardNumEl.innerText;
+  navigator.clipboard.writeText(cardNum.replace(/\s+/g, '')).then(() => {
+    alert("Karta raqami nusxalandi!");
+  }).catch(err => {
+    console.error("Nusxalashda xatolik:", err);
+  });
 }
 
-// Taymer mantiqi (22-sentabr 2026-yil, Seshanba)
+// Taymer mantiqi (22-sentabr 2026-yil, 18:00)
 const targetDate = new Date("September 22, 2026 18:00:00").getTime();
 
-setInterval(() => {
+function updateCountdown() {
   const now = new Date().getTime();
   const difference = targetDate - now;
+
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
   if (difference > 0) {
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -55,14 +86,17 @@ setInterval(() => {
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
+    daysEl.innerText = days < 10 ? '0' + days : days;
+    hoursEl.innerText = hours < 10 ? '0' + hours : hours;
+    minutesEl.innerText = minutes < 10 ? '0' + minutes : minutes;
+    secondsEl.innerText = seconds < 10 ? '0' + seconds : seconds;
   } else {
-    document.getElementById("days").innerText = "00";
-    document.getElementById("hours").innerText = "00";
-    document.getElementById("minutes").innerText = "00";
-    document.getElementById("seconds").innerText = "00";
+    daysEl.innerText = "00";
+    hoursEl.innerText = "00";
+    minutesEl.innerText = "00";
+    secondsEl.innerText = "00";
   }
-}, 1000);
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
