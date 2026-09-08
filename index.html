@@ -16,28 +16,28 @@
 
   <div class="container">
     
-    <!-- 1. KONVERT EKRANI (YANGILANGAN QISMI) -->
+    <!-- 1. KONVERT EKRANI -->
     <div id="envelope-screen" class="screen">
       <div class="lang-switch">
         <span class="active">UZ</span> <span>EN</span> <span>RU</span>
       </div>
-      
-      <div class="envelope-wrapper">
-        <div class="envelope" id="envelopeCard">
+
+      <div class="envelope-container">
+        <div class="envelope" id="envelope">
           <div class="flap"></div>
           <div class="pocket"></div>
           <div class="seal" onclick="openEnvelope()">
             <span class="seal-icon">🌿</span>
           </div>
         </div>
-        <button class="open-envelope-btn" onclick="openEnvelope()">OCHISH UCHUN BOSING</button>
+        <button class="open-btn" onclick="openEnvelope()">OCHISH UCHUN BOSING</button>
       </div>
     </div>
 
     <!-- 2. ASOSIY TAKLIFNOMA EKRANI -->
     <div id="main-screen" class="screen hidden">
       
-      <!-- Musiqa tugmasi (pauza/play) -->
+      <!-- Musiqa tugmasi -->
       <button id="musicToggleBtn" class="music-control-btn" onclick="toggleMusic()">⏸</button>
 
       <!-- Muqova -->
