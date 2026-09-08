@@ -599,3 +599,114 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+/* 1. OLTIN ZARRA (GLITTER) EFFEKTI */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffd700 0%, rgba(212, 175, 55, 0) 70%);
+  border-radius: 50%;
+  animation: floatUp 8s infinite linear;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* 2. PREMIUM ORNAMENTAL BORDER (Ramka) */
+.floral-frame, .venue-card, .card-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 179, 194, 0.5);
+  box-shadow: 0 15px 35px rgba(94, 74, 87, 0.08), inset 0 0 15px rgba(212, 175, 55, 0.05);
+}
+
+.floral-frame::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 6px; right: 6px; bottom: 6px;
+  border: 1px dashed #d4af37;
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* 3. SHINE (YALTIROQ) EFFEKTI BUTTONLAR UCHUN */
+.open-btn, .action-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #8e7485 0%, #5e4a57 100%) !important;
+  border: 1px solid #d4af37 !important;
+  box-shadow: 0 8px 25px rgba(142, 116, 133, 0.3);
+}
+
+.open-btn::after, .action-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg);
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  20% { transform: translateX(100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* 4. ISMLAR UCHUN PREMIUM NURLANISH */
+.couple-names {
+  background: linear-gradient(45deg, #5e4a57, #8e7485, #d4af37, #5e4a57);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 6s ease infinite;
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 5. MUSIQIY PULSATOR */
+.music-btn.playing {
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.4); }
+  100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.9); }
+}

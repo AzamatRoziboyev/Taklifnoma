@@ -210,3 +210,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reveals.forEach(reveal => observer.observe(reveal));
 });
+
+
+// Oltin Zarrachalarni (Glitter Particles) Avtomatik Yaratish
+function createParticles() {
+  const container = document.querySelector('.app-viewport');
+  const particlesWrapper = document.createElement('div');
+  particlesWrapper.className = 'particles-container';
+  container.appendChild(particlesWrapper);
+
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 6 + 's';
+    particle.style.animationDuration = (5 + Math.random() * 5) + 's';
+    particle.style.width = (3 + Math.random() * 4) + 'px';
+    particle.style.height = particle.style.width;
+    particlesWrapper.appendChild(particle);
+  }
+}
+
+// Sahna yuklanganda zarrachalarni ishga tushirish
+document.addEventListener('DOMContentLoaded', () => {
+  createParticles();
+});
