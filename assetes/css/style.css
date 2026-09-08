@@ -1,16 +1,13 @@
-/* 12. DIZAYN RANGLARI VA FONT CONFIGURATION */
 :root {
-  --bg-color: #F8F1F7;
-  --bg-secondary: #EDE3EA;
-  --card-bg: #E8D8E4;
+  --pink-bg: #F5EAEF;
+  --card-pink: #EBD3DF;
+  --dark-green: #3B5249;
   --white: #FFFFFF;
-  --accent-light: #C9B3C2;
-  --accent-dark: #8E7485;
-  --text-dark: #5E4A57;
-  --gold-accent: #D4AF37;
+  --text-dark: #4A3E47;
+  --gold: #C5A059;
   
   --font-title: 'Great Vibes', cursive;
-  --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
 }
 
@@ -22,57 +19,103 @@
 }
 
 body {
-  background-color: #1a1518;
+  background-color: #121212;
   font-family: var(--font-sans);
   color: var(--text-dark);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
-/* DESKTOP PHONE CONTAINER MOCKUP */
+/* DESKTOP PHONE MOCKUP FRAME */
 .app-viewport {
   width: 100%;
-  max-width: 414px;
+  max-width: 390px;
   height: 100vh;
-  max-height: 896px;
-  background-color: var(--bg-color);
+  max-height: 844px;
+  background-color: var(--pink-bg);
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-  border-radius: 0;
-  scrollbar-width: none; /* Firefox */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  scrollbar-width: none;
 }
 
 .app-viewport::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
 
-@media (min-height: 650px) and (min-width: 450px) {
+@media (min-height: 650px) and (min-width: 420px) {
   .app-viewport {
-    height: 92vh;
-    border-radius: 30px;
-    border: 8px solid #2d242a;
+    height: 90vh;
+    border-radius: 35px;
+    border: 8px solid #222;
   }
 }
 
-/* 1. BOSHLANG'ICH EKRAN: KONVERT */
-.envelope-screen {
+/* TOP NAVIGATION */
+.top-nav {
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, var(--bg-color) 0%, var(--bg-secondary) 100%);
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 30;
+}
+
+.music-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255,255,255,0.9);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lang-capsule {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 2px 4px;
+  backdrop-filter: blur(5px);
+  display: flex;
+  gap: 2px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+.lang-btn.active {
+  background: var(--dark-green);
+  color: var(--white);
+}
+
+/* 1. KONVERT EKRANI */
+.envelope-screen {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--pink-bg);
   z-index: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: opacity 1.2s ease, visibility 1.2s ease;
+  transition: opacity 1s ease, visibility 1s ease;
 }
 
 .envelope-screen.opened {
@@ -85,28 +128,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
 }
 
 .envelope {
   width: 280px;
-  height: 190px;
-  background: var(--bg-secondary);
-  border-radius: 12px;
+  height: 180px;
+  background: var(--card-pink);
+  border-radius: 8px;
   position: relative;
-  box-shadow: 0 15px 35px rgba(94, 74, 87, 0.15);
-  border: 1px solid var(--accent-light);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  border: 2px solid rgba(255,255,255,0.6);
 }
 
 .flap {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
+  top: 0; left: 0;
+  width: 0; height: 0;
   border-left: 140px solid transparent;
   border-right: 140px solid transparent;
-  border-top: 105px solid var(--card-bg);
+  border-top: 100px solid #E3C5D4;
   transform-origin: top;
   transition: transform 0.8s ease;
   z-index: 3;
@@ -114,68 +155,28 @@ body {
 
 .pocket {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 140px solid var(--card-bg);
-  border-right: 140px solid var(--card-bg);
-  border-bottom: 95px solid var(--accent-light);
-  border-radius: 0 0 12px 12px;
+  bottom: 0; left: 0;
+  width: 0; height: 0;
+  border-left: 140px solid #EAD0DD;
+  border-right: 140px solid #EAD0DD;
+  border-bottom: 90px solid #DFC0CF;
+  border-radius: 0 0 8px 8px;
   z-index: 2;
-}
-
-.letter {
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
-  width: 250px;
-  height: 160px;
-  background: var(--white);
-  border-radius: 8px;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.8s ease 0.3s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.letter-content {
-  text-align: center;
-}
-
-.letter-monogram {
-  font-family: var(--font-title);
-  font-size: 38px;
-  color: var(--accent-dark);
-}
-
-.letter-sub {
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: var(--text-dark);
-  text-transform: uppercase;
 }
 
 .wax-seal {
   position: absolute;
-  top: 90px;
-  left: 50%;
+  top: 85px; left: 50%;
   transform: translateX(-50%);
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, #c4718e, #8e7485);
+  width: 46px; height: 46px;
+  background: #B5A0A8;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--white);
-  font-family: var(--font-title);
-  font-size: 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   z-index: 4;
-  border: 2px dashed rgba(255,255,255,0.4);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
 }
 
 .envelope.open .flap {
@@ -183,100 +184,34 @@ body {
   z-index: 0;
 }
 
-.envelope.open .letter {
-  transform: translateY(-50px);
-}
-
 .open-btn {
-  background: var(--accent-dark);
-  color: var(--white);
-  border: none;
-  padding: 14px 28px;
-  border-radius: 25px;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(142, 116, 133, 0.3);
-  transition: transform 0.2s, background 0.3s;
-}
-
-.open-btn:active {
-  transform: scale(0.96);
-}
-
-/* 3. YUQORI NAVIGATSIYA */
-.top-nav {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  width: 100%;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 20;
-}
-
-.music-btn {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid var(--accent-light);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.lang-capsule {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid var(--accent-light);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--card-pink);
+  padding: 12px 28px;
   border-radius: 20px;
-  padding: 3px;
-  display: flex;
-  gap: 2px;
-  backdrop-filter: blur(5px);
-}
-
-.lang-btn {
-  border: none;
-  background: transparent;
-  padding: 5px 10px;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 1px;
   color: var(--text-dark);
-  border-radius: 15px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.lang-btn.active {
-  background: var(--accent-dark);
-  color: var(--white);
-}
-
-/* 2. ASOSIY HERO SECTION */
+/* 2. HERO SECTION */
 .hero-section {
-  position: relative;
   height: 100vh;
-  min-height: 560px;
+  min-height: 520px;
+  background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
-  padding: 0 20px;
 }
 
 .hero-bg-overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(180deg, rgba(248,241,247,0.7) 0%, rgba(248,241,247,0.85) 60%, var(--bg-color) 100%);
+  background: linear-gradient(180deg, rgba(245,234,239,0.5) 0%, rgba(245,234,239,0.8) 70%, var(--pink-bg) 100%);
 }
 
 .hero-content {
@@ -286,427 +221,324 @@ body {
 
 .couple-names {
   font-family: var(--font-title);
-  font-size: 56px;
-  color: var(--accent-dark);
+  font-size: 58px;
+  color: var(--text-dark);
   line-height: 1.1;
-  margin: 15px 0;
-  text-shadow: 0 2px 10px rgba(255,255,255,0.8);
 }
 
 .ampersand {
   font-family: var(--font-serif);
   font-size: 32px;
   font-style: italic;
-  color: var(--gold-accent);
 }
 
-.divider-line {
-  width: 60px;
-  height: 1px;
-  background: var(--accent-dark);
-  margin: 15px auto;
-  opacity: 0.5;
-}
-
-.hero-subtitle {
-  font-family: var(--font-serif);
-  font-size: 18px;
-  font-style: italic;
-  color: var(--text-dark);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 20px;
-  z-index: 2;
-  animation: bounce 2s infinite;
-  color: var(--accent-dark);
-  font-size: 20px;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-10px); }
-  60% { transform: translateY(-5px); }
+.scroll-prompt {
+  margin-top: 40px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  opacity: 0.7;
 }
 
 /* COMMON SECTION STYLES */
 .section {
-  padding: 50px 24px;
+  padding: 40px 20px;
   text-align: center;
-  position: relative;
-}
-
-.section-icon {
-  font-size: 22px;
-  margin-bottom: 8px;
 }
 
 .calligraphy-title {
   font-family: var(--font-title);
-  font-size: 42px;
-  color: var(--accent-dark);
+  font-size: 40px;
+  color: var(--text-dark);
   margin-bottom: 15px;
 }
 
-/* 5. COUNTDOWN SECTION */
-.event-date-badge {
-  display: inline-block;
-  background: var(--bg-secondary);
-  border: 1px solid var(--accent-light);
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-family: var(--font-serif);
-  font-size: 16px;
-  margin-bottom: 25px;
+.section-subtext {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 5px;
 }
 
-.timer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.timer-box {
-  background: var(--white);
-  border: 1px solid var(--accent-light);
-  border-radius: 12px;
-  padding: 12px 5px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-}
-
-.timer-number {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--accent-dark);
-}
-
-.timer-label {
-  font-size: 9px;
+/* 3. SANANI OCHING SECTION */
+.instruction-text {
+  font-size: 10px;
   letter-spacing: 1px;
-  color: var(--text-dark);
-  opacity: 0.8;
+  opacity: 0.6;
+  margin-bottom: 15px;
 }
 
-/* 6. TAKLIF MATNI SECTION */
-.floral-frame {
+.date-scratch-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.scratch-card {
+  width: 75px;
+  height: 75px;
+  background: linear-gradient(135deg, #d8bcab 0%, #c4a491 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.4s, background 0.4s;
+}
+
+.scratch-card.revealed {
   background: var(--white);
-  border: 1px solid var(--accent-light);
-  border-radius: 16px;
-  padding: 35px 20px;
-  box-shadow: 0 10px 30px rgba(142, 116, 133, 0.08);
+  border: 1px solid var(--card-pink);
 }
 
-.invitation-paragraph {
+.scratch-card .card-val {
   font-family: var(--font-serif);
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-dark);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 
-.ornament-bottom {
-  margin-top: 15px;
-  color: var(--accent-dark);
+.scratch-card.revealed .card-val {
+  opacity: 1;
+}
+
+.revealed-date-box {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.revealed-date-box.show {
+  opacity: 1;
+}
+
+.day-name {
+  font-family: var(--font-serif);
   font-size: 18px;
+  font-style: italic;
 }
 
-/* 8. TO'Y MANZILI SECTION */
-.venue-card {
-  background: var(--bg-secondary);
-  border-radius: 16px;
-  padding: 25px 20px;
-  border: 1px solid var(--accent-light);
+.full-date {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* 4. GREETING CARD */
+.green-card {
+  background: var(--dark-green);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 25px rgba(59, 82, 73, 0.2);
+}
+
+.birds-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.greeting-title {
+  font-family: var(--font-title);
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.greeting-text {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* 5. VENUE SECTION */
+.venue-building-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.building-img-placeholder {
+  width: 100%;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.venue-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .venue-name {
   font-family: var(--font-serif);
   font-size: 20px;
-  color: var(--accent-dark);
-  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
-.venue-address {
-  font-size: 13px;
-  line-height: 1.5;
-  margin-bottom: 15px;
+.venue-location {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 3px;
 }
 
 .venue-time {
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.time-value {
+  font-size: 22px;
   font-weight: 600;
-  color: var(--accent-dark);
+  margin: 10px 0;
 }
 
-.action-btn {
-  display: inline-block;
-  background: var(--accent-dark);
-  color: var(--white);
+.maps-btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.map-btn {
+  flex: 1;
+  padding: 10px 5px;
+  background: var(--pink-bg);
+  border: 1px solid var(--card-pink);
+  border-radius: 12px;
   text-decoration: none;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 20px;
   font-size: 11px;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  box-shadow: 0 5px 15px rgba(142, 116, 133, 0.2);
+  color: var(--text-dark);
 }
 
-.action-btn:active {
-  opacity: 0.85;
-}
-
-/* 7. TO'YONA SECTION */
+/* 6. TO'YONA SECTION */
 .gift-subtitle {
-  font-size: 13px;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 15px;
 }
 
 .card-box {
   background: var(--white);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 20px;
-  border: 1px solid var(--accent-light);
-  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
-.card-recipient, .card-number-wrapper {
-  margin-bottom: 12px;
+.card-row {
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .card-label {
   display: block;
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 1px;
-  color: var(--accent-dark);
-  margin-bottom: 3px;
+  opacity: 0.6;
 }
 
 .card-val, .card-number {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.copy-btn {
+  width: 100%;
+  background: var(--dark-green);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.copy-notice {
+  font-size: 11px;
+  color: #2e7d32;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.copy-notice.show {
+  opacity: 1;
+}
+
+.payment-apps {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.pay-app-btn {
+  flex: 1;
+  padding: 8px;
+  background: var(--pink-bg);
+  border: 1px solid var(--card-pink);
+  border-radius: 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* 7. COUNTDOWN CIRCLES */
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.timer-circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--card-pink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.timer-num {
   font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 600;
 }
 
-.copy-notification {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #2e7d32;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.copy-notification.show {
-  opacity: 1;
-}
-
-/* 9. GALEREYA SECTION */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.gallery-item {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--accent-light);
-  aspect-ratio: 1;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.gallery-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-  cursor: pointer;
-}
-
-.gallery-img:hover {
-  transform: scale(1.05);
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 200;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.modal-content {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 12px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
-
-/* 15. FOOTER */
-.footer {
-  padding: 40px 20px;
-  text-align: center;
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--accent-light);
-}
-
-.footer-love {
-  font-size: 12px;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
-}
-
-.footer-names {
-  font-family: var(--font-title);
-  font-size: 32px;
-  color: var(--accent-dark);
-}
-
-.footer-year {
-  font-size: 11px;
-  margin-top: 5px;
+.timer-lbl {
+  font-size: 8px;
   opacity: 0.6;
+  letter-spacing: 1px;
 }
 
-/* 10, 11. ANIMATSIYALAR & SCROLL REVEAL */
+.timer-bottom-text {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 15px;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 10px;
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+
+/* SCROLL REVEAL ANIMATION */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-/* 1. OLTIN ZARRA (GLITTER) EFFEKTI */
-.particles-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
-  overflow: hidden;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: radial-gradient(circle, #ffd700 0%, rgba(212, 175, 55, 0) 70%);
-  border-radius: 50%;
-  animation: floatUp 8s infinite linear;
-  opacity: 0;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-10vh) scale(1.5);
-    opacity: 0;
-  }
-}
-
-/* 2. PREMIUM ORNAMENTAL BORDER (Ramka) */
-.floral-frame, .venue-card, .card-box {
-  position: relative;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(201, 179, 194, 0.5);
-  box-shadow: 0 15px 35px rgba(94, 74, 87, 0.08), inset 0 0 15px rgba(212, 175, 55, 0.05);
-}
-
-.floral-frame::before {
-  content: '';
-  position: absolute;
-  top: 6px; left: 6px; right: 6px; bottom: 6px;
-  border: 1px dashed #d4af37;
-  border-radius: 12px;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-/* 3. SHINE (YALTIROQ) EFFEKTI BUTTONLAR UCHUN */
-.open-btn, .action-btn {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #8e7485 0%, #5e4a57 100%) !important;
-  border: 1px solid #d4af37 !important;
-  box-shadow: 0 8px 25px rgba(142, 116, 133, 0.3);
-}
-
-.open-btn::after, .action-btn::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 70%
-  );
-  transform: rotate(30deg);
-  animation: shine 4s infinite;
-}
-
-@keyframes shine {
-  0% { transform: translateX(-100%) rotate(30deg); }
-  20% { transform: translateX(100%) rotate(30deg); }
-  100% { transform: translateX(100%) rotate(30deg); }
-}
-
-/* 4. ISMLAR UCHUN PREMIUM NURLANISH */
-.couple-names {
-  background: linear-gradient(45deg, #5e4a57, #8e7485, #d4af37, #5e4a57);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientText 6s ease infinite;
-}
-
-@keyframes gradientText {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 5. MUSIQIY PULSATOR */
-.music-btn.playing {
-  animation: pulseGlow 2s infinite alternate;
-}
-
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.4); }
-  100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.9); }
 }

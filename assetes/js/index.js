@@ -1,82 +1,88 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // TRANSLATIONS DICTIONARY
+  // TRANSLATIONS
   const translations = {
     uz: {
-      open_invitation: "TAKLIFNOMANI OCHISH",
-      hero_welcome: "Biz bilan baxtimizni baham ko'ring",
-      countdown_title: "Sana va Vaqt",
-      date_text: "19 Sentabr 2026",
-      days_label: "KUN",
-      hours_label: "SOAT",
-      minutes_label: "DAQIQA",
-      seconds_label: "SONIYA",
-      invitation_header: "To'yimizga",
-      invitation_body: "Aziz va qadrli mehmonimiz! Sizni hayotimizdagi eng quvonchli va unutilmas kunimiz — nikoh to'yimizda faxriy mehmonimiz bo'lishga lutfan taklif etamiz.",
-      venue_title: "To'y Manzili",
-      venue_address: "Xorazm viloyati, Hazorasp tumani, Markaziy ko'chasi 15-uy",
-      time_label: "Boshlanish vaqti:",
-      view_map_btn: "XARITADA KO'RISH",
+      open_invitation: "OCHISH UCHUN BOSING",
+      scroll_down: "pastga suring ➔",
+      date_subtext: "Davom etish uchun ushbu tugmani bosing",
+      open_date_title: "Sanani oching",
+      click_to_reveal: "SANANI BILISH UCHUN QIRING",
+      day_name: "Yakshanba",
+      dear_guests: "Aziz yaqinlarimiz!",
+      greeting_body: "Sizni oilaviy baxtimiz boshlanadigan eng quvonchli kunimizda biz bilan birga mehmondorchilikda taklif etamiz. Sizning tashrifingiz bu kunni yanada unutilmas qiladi.",
+      when_where: "Qachon va qayerda",
+      hall_location: "Toshkent — Chilonzor tumani",
+      yandex_maps: "Yandex Xaritalar ↗",
+      google_maps: "Google Xaritalar ↗",
       gift_title: "To'yona",
-      gift_text: "Agar istasangiz, to'yona va ezgu tilaklaringizni havola qilingan karta raqamiga yuborishingiz mumkin.",
-      card_recipient: "QABUL QILUVCHI:",
-      card_number: "KARTA RAQAMI:",
+      gift_desc: "Agar istasangiz, to'yonani kuyov kartasiga yuborishingiz mumkin:",
+      recipient: "QABUL QILUVCHI:",
+      card_num: "KARTA RAQAMI:",
       copy_btn: "RAQAMNI NUSXALASH",
-      copied_notice: "Raqam nusxalandi ✓",
-      gallery_title: "Foto Galereya",
-      footer_love: "Sevgi bilan yaratilgan"
+      copied_notice: "RAQAM NUSXALANDI ✓",
+      until_wedding: "To'yimizgacha",
+      lbl_days: "KUN",
+      lbl_hours: "SOAT",
+      lbl_mins: "DAQIQA",
+      lbl_secs: "SONIYA",
+      see_you_text: "Siz bilan uchrashuvni intizorlik bilan kutamiz!"
     },
     en: {
-      open_invitation: "OPEN INVITATION",
-      hero_welcome: "Share our happiness with us",
-      countdown_title: "Date & Time",
-      date_text: "September 19, 2026",
-      days_label: "DAYS",
-      hours_label: "HOURS",
-      minutes_label: "MINS",
-      seconds_label: "SECS",
-      invitation_header: "Our Wedding",
-      invitation_body: "Dear guest! We cordially invite you to be our honored guest on the most joyful and unforgettable day of our lives — our wedding day.",
-      venue_title: "Wedding Venue",
-      venue_address: "Khorezm region, Khazorasp district, Central Street 15",
-      time_label: "Start Time:",
-      view_map_btn: "VIEW ON MAP",
+      open_invitation: "CLICK TO OPEN",
+      scroll_down: "scroll down ➔",
+      date_subtext: "Click below to proceed",
+      open_date_title: "Reveal the date",
+      click_to_reveal: "CLICK CARDS TO REVEAL",
+      day_name: "Sunday",
+      dear_guests: "Dear guests!",
+      greeting_body: "We cordially invite you to celebrate our special day with us. Your presence will make it unforgettable.",
+      when_where: "When & Where",
+      hall_location: "Tashkent — Chilonzor district",
+      yandex_maps: "Yandex Maps ↗",
+      google_maps: "Google Maps ↗",
       gift_title: "Wedding Gift",
-      gift_text: "If you wish, you can send your gift and warm wishes to the card number provided below.",
-      card_recipient: "RECIPIENT:",
-      card_number: "CARD NUMBER:",
+      gift_desc: "If you wish, you can send your gift to the groom's card:",
+      recipient: "RECIPIENT:",
+      card_num: "CARD NUMBER:",
       copy_btn: "COPY NUMBER",
-      copied_notice: "Number copied ✓",
-      gallery_title: "Photo Gallery",
-      footer_love: "Created with love"
+      copied_notice: "NUMBER COPIED ✓",
+      until_wedding: "Until Wedding",
+      lbl_days: "DAYS",
+      lbl_hours: "HOURS",
+      lbl_mins: "MINS",
+      lbl_secs: "SECS",
+      see_you_text: "We look forward to seeing you!"
     },
     ru: {
-      open_invitation: "OTKRYT' PRIGLASHENIE",
-      hero_welcome: "Razdelite s nami nashe schast'ye",
-      countdown_title: "Data i Vremya",
-      date_text: "19 Sentyabrya 2026",
-      days_label: "DNEJ",
-      hours_label: "CHASOV",
-      minutes_label: "MINUT",
-      seconds_label: "SEKUND",
-      invitation_header: "Na svad'bu",
-      invitation_body: "Dorogoy gost'! Serdechno priglashaem vas stat' pochetnym gostem v samyj radostnyj i nezabyvaemyj den' nashey zhizni — den' nashey svad'by.",
-      venue_title: "Mesto Provedeniya",
-      venue_address: "Khorezmskaya oblast', Khazaraspskij rayon, Tsentral'naya ulitsa 15",
-      time_label: "Vremya nachala:",
-      view_map_btn: "POKAZAT' NA KARTE",
+      open_invitation: "NAZHMITYE CHTOBY OTKRYT'",
+      scroll_down: "listaite vniz ➔",
+      date_subtext: "Nazhmite knopku nizhe",
+      open_date_title: "Otkroyte datu",
+      click_to_reveal: "NAZHMITYE CHTOBY UZNAT'",
+      day_name: "Voskresen'ye",
+      dear_guests: "Dorogiye gosti!",
+      greeting_body: "Priglashaem vas razdelit' s nami etot radostnyy den'. Vashe prisutstviye sdelaet ego nezabyvaemym.",
+      when_where: "Gde i kogda",
+      hall_location: "Tashkent — Chilonzarskiy rayon",
+      yandex_maps: "Yandex Karty ↗",
+      google_maps: "Google Karty ↗",
       gift_title: "Podarok",
-      gift_text: "Esli khotite, mozhete otpravit' podarok i nailuchshie pozhelaniya na kartatsevoy nomer.",
-      card_recipient: "POLUCHATEL':",
-      card_number: "NOMER KARTY:",
+      gift_desc: "Esli khotite, mozhete perevesti podarok na kartu zhenikha:",
+      recipient: "POLUCHATEL':",
+      card_num: "NOMER KARTY:",
       copy_btn: "SKOPIROVAT'",
-      copied_notice: "Nomer skopirovan ✓",
-      gallery_title: "Foto Galereya",
-      footer_love: "Sdelano s lyubov'yu"
+      copied_notice: "NOMER SKOPIROVAN ✓",
+      until_wedding: "Do svad'by",
+      lbl_days: "DNEI",
+      lbl_hours: "CHASOV",
+      lbl_mins: "MINUT",
+      lbl_secs: "SEKUND",
+      see_you_text: "S terpeniyem zdem vstrechi s vami!"
     }
   };
 
-  // 1. ENVELOPE OPENING & MUSIC START
+  // 1. ENVELOPE & MUSIC
   const openBtn = document.getElementById('openBtn');
   const envelope = document.getElementById('envelope');
   const envelopeScreen = document.getElementById('envelopeScreen');
@@ -84,230 +90,112 @@ document.addEventListener('DOMContentLoaded', () => {
   const musicIcon = document.getElementById('musicIcon');
   let isPlaying = false;
 
+  function shootFlowers() {
+    confetti({
+      particleCount: 40,
+      spread: 90,
+      origin: { y: 0.5 },
+      shapes: [confetti.shapeFromText({ text: '🌸', scalar: 2 }), confetti.shapeFromText({ text: '🌹', scalar: 2 })]
+    });
+  }
+
   openBtn.addEventListener('click', () => {
     envelope.classList.add('open');
-    
-    // Play audio
+    setTimeout(shootFlowers, 300);
+
     bgMusic.play().then(() => {
       isPlaying = true;
-      musicIcon.textContent = '🔊';
-    }).catch(err => {
-      console.log("Autoplay blocked:", err);
-    });
+      musicIcon.textContent = '⏸';
+    }).catch(e => console.log(e));
 
     setTimeout(() => {
       envelopeScreen.classList.add('opened');
     }, 1200);
   });
 
-  // 4. MUSIC CONTROLLER
+  // MUSIC TOGGLE
   const musicBtn = document.getElementById('musicBtn');
   musicBtn.addEventListener('click', () => {
     if (isPlaying) {
       bgMusic.pause();
-      musicIcon.textContent = '🔇';
+      musicIcon.textContent = '▶';
       isPlaying = false;
     } else {
       bgMusic.play();
-      musicIcon.textContent = '🔊';
+      musicIcon.textContent = '⏸';
       isPlaying = true;
     }
   });
 
-  // 3. LANGUAGE SWITCHER
+  // LANGUAGE SWITCH
   const langBtns = document.querySelectorAll('.lang-btn');
   langBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       langBtns.forEach(b => b.classList.remove('active'));
       e.target.classList.add('active');
-
       const lang = e.target.getAttribute('data-lang');
-      updateLanguage(lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
     });
   });
 
-  function updateLanguage(lang) {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][key]) {
-        el.textContent = translations[lang][key];
+  // 3. SANANI OCHING SCRATCH CARDS
+  const scratchCards = document.querySelectorAll('.scratch-card');
+  const revealedDateBox = document.getElementById('revealedDateBox');
+  let revealedCount = 0;
+
+  scratchCards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (!card.classList.contains('revealed')) {
+        card.classList.add('revealed');
+        revealedCount++;
+        if (revealedCount === 3) {
+          revealedDateBox.classList.add('show');
+        }
       }
     });
-  }
+  });
 
-  // 5. COUNTDOWN TIMER (Target: 19 Sept 2026, 18:00)
-  const targetDate = new Date('2026-09-19T18:00:00').getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const difference = targetDate - now;
-
-    if (difference > 0) {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-
-  // 7. COPY CARD NUMBER TO CLIPBOARD
+  // 6. COPY CARD NUMBER
   const copyBtn = document.getElementById('copyBtn');
   const copyNotice = document.getElementById('copyNotice');
 
   copyBtn.addEventListener('click', () => {
-    const cardNumber = "8600000000000000";
-    navigator.clipboard.writeText(cardNumber).then(() => {
+    navigator.clipboard.writeText("8600000000000000").then(() => {
       copyNotice.classList.add('show');
-      setTimeout(() => {
-        copyNotice.classList.remove('show');
-      }, 2500);
+      setTimeout(() => copyNotice.classList.remove('show'), 2000);
     });
   });
 
-  // 9. GALLERY FULLSCREEN MODAL
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImg');
-  const modalClose = document.getElementById('modalClose');
-  const galleryImgs = document.querySelectorAll('.gallery-img');
+  // 7. COUNTDOWN TIMER
+  const targetDate = new Date('2027-09-19T18:00:00').getTime();
 
-  galleryImgs.forEach(img => {
-    img.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modalImg.src = img.src;
-    });
-  });
+  function updateTimer() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
 
-  modalClose.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
+    if (diff > 0) {
+      document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById('minutes').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById('seconds').textContent = Math.floor((diff % (1000 * 60)) / 1000);
     }
-  });
-
-  // 11. SCROLL REVEAL (INTERSECTION OBSERVER)
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  reveals.forEach(reveal => observer.observe(reveal));
-});
-
-
-// Oltin Zarrachalarni (Glitter Particles) Avtomatik Yaratish
-function createParticles() {
-  const container = document.querySelector('.app-viewport');
-  const particlesWrapper = document.createElement('div');
-  particlesWrapper.className = 'particles-container';
-  container.appendChild(particlesWrapper);
-
-  for (let i = 0; i < 30; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 6 + 's';
-    particle.style.animationDuration = (5 + Math.random() * 5) + 's';
-    particle.style.width = (3 + Math.random() * 4) + 'px';
-    particle.style.height = particle.style.width;
-    particlesWrapper.appendChild(particle);
   }
-}
+  setInterval(updateTimer, 1000);
+  updateTimer();
 
-// Sahna yuklanganda zarrachalarni ishga tushirish
-document.addEventListener('DOMContentLoaded', () => {
-  createParticles();
-});
-
-
-
-// ENVELOPE OPENING & MUSIC START + FLOWER BURST
-const openBtn = document.getElementById('openBtn');
-const envelope = document.getElementById('envelope');
-const envelopeScreen = document.getElementById('envelopeScreen');
-const bgMusic = document.getElementById('bg-music');
-const musicIcon = document.getElementById('musicIcon');
-let isPlaying = false;
-
-// Gullar sochilish funksiyasi
-function shootFlowers() {
-  // Atirgul va gullar emojilari
-  const flowerShapes = [
-    confetti.shapeFromText({ text: '🌸', scalar: 2 }),
-    confetti.shapeFromText({ text: '🌹', scalar: 2 }),
-    confetti.shapeFromText({ text: '🌺', scalar: 2 }),
-    confetti.shapeFromText({ text: '✨', scalar: 1.5 })
-  ];
-
-  // Ekranning markazidan har tomonga sochilish (Burst effect)
-  confetti({
-    particleCount: 45,
-    spread: 100,
-    origin: { y: 0.5, x: 0.5 }, // Konvert joylashgan markaz
-    shapes: flowerShapes,
-    scalar: 2,
-    ticks: 200, // Ekranda uzoqroq qolishi uchun
-    gravity: 0.6,
-    drift: 0,
-    startVelocity: 35
-  });
-
-  // Sal kechikib ikkinchi marta nozikroq sochilish
-  setTimeout(() => {
-    confetti({
-      particleCount: 30,
-      angle: 60,
-      spread: 80,
-      origin: { x: 0.2, y: 0.6 },
-      shapes: flowerShapes,
-      scalar: 1.8
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
     });
-    confetti({
-      particleCount: 30,
-      angle: 120,
-      spread: 80,
-      origin: { x: 0.8, y: 0.6 },
-      shapes: flowerShapes,
-      scalar: 1.8
-    });
-  }, 400);
-}
+  }, { threshold: 0.1 });
 
-openBtn.addEventListener('click', () => {
-  envelope.classList.add('open');
-  
-  // Konvert qopqog'i ochilishi bilan gullar sochiladi
-  setTimeout(() => {
-    shootFlowers();
-  }, 300);
-
-  // Musiqani poylash
-  bgMusic.play().then(() => {
-    isPlaying = true;
-    musicIcon.textContent = '🔊';
-  }).catch(err => {
-    console.log("Autoplay blocked:", err);
-  });
-
-  // Asosiy ekranga o'tish
-  setTimeout(() => {
-    envelopeScreen.classList.add('opened');
-  }, 1400);
+  reveals.forEach(r => observer.observe(r));
 });
