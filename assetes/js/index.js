@@ -235,3 +235,79 @@ function createParticles() {
 document.addEventListener('DOMContentLoaded', () => {
   createParticles();
 });
+
+
+
+// ENVELOPE OPENING & MUSIC START + FLOWER BURST
+const openBtn = document.getElementById('openBtn');
+const envelope = document.getElementById('envelope');
+const envelopeScreen = document.getElementById('envelopeScreen');
+const bgMusic = document.getElementById('bg-music');
+const musicIcon = document.getElementById('musicIcon');
+let isPlaying = false;
+
+// Gullar sochilish funksiyasi
+function shootFlowers() {
+  // Atirgul va gullar emojilari
+  const flowerShapes = [
+    confetti.shapeFromText({ text: '🌸', scalar: 2 }),
+    confetti.shapeFromText({ text: '🌹', scalar: 2 }),
+    confetti.shapeFromText({ text: '🌺', scalar: 2 }),
+    confetti.shapeFromText({ text: '✨', scalar: 1.5 })
+  ];
+
+  // Ekranning markazidan har tomonga sochilish (Burst effect)
+  confetti({
+    particleCount: 45,
+    spread: 100,
+    origin: { y: 0.5, x: 0.5 }, // Konvert joylashgan markaz
+    shapes: flowerShapes,
+    scalar: 2,
+    ticks: 200, // Ekranda uzoqroq qolishi uchun
+    gravity: 0.6,
+    drift: 0,
+    startVelocity: 35
+  });
+
+  // Sal kechikib ikkinchi marta nozikroq sochilish
+  setTimeout(() => {
+    confetti({
+      particleCount: 30,
+      angle: 60,
+      spread: 80,
+      origin: { x: 0.2, y: 0.6 },
+      shapes: flowerShapes,
+      scalar: 1.8
+    });
+    confetti({
+      particleCount: 30,
+      angle: 120,
+      spread: 80,
+      origin: { x: 0.8, y: 0.6 },
+      shapes: flowerShapes,
+      scalar: 1.8
+    });
+  }, 400);
+}
+
+openBtn.addEventListener('click', () => {
+  envelope.classList.add('open');
+  
+  // Konvert qopqog'i ochilishi bilan gullar sochiladi
+  setTimeout(() => {
+    shootFlowers();
+  }, 300);
+
+  // Musiqani poylash
+  bgMusic.play().then(() => {
+    isPlaying = true;
+    musicIcon.textContent = '🔊';
+  }).catch(err => {
+    console.log("Autoplay blocked:", err);
+  });
+
+  // Asosiy ekranga o'tish
+  setTimeout(() => {
+    envelopeScreen.classList.add('opened');
+  }, 1400);
+});
