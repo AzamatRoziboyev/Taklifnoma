@@ -21,14 +21,12 @@ body {
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   position: relative;
   overflow-x: hidden;
-
 }
 
 .screen {
   padding: 20px;
   text-align: center;
   position: relative;
-  padding: 10px
 }
 
 .hidden {
@@ -92,10 +90,6 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: transform 0.2s;
 }
-.seal .seal-icon {
-  color: red;
-  font-size: 35px;
-}
 
 .seal:hover {
   transform: scale(1.05);
@@ -112,8 +106,7 @@ body {
   padding: 60px 0;
   background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80') center/cover;
   border-radius: 16px;
-  color: white;
-
+  color: #4a3e3d;
 }
 
 .names {
