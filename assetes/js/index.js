@@ -6,7 +6,7 @@ function openEnvelope() {
   document.getElementById('envelope-screen').classList.add('hidden');
   document.getElementById('main-screen').classList.remove('hidden');
   
-  // Musiqani ijro etish
+  // Musiqani chalish
   bgMusic.play().then(() => {
     musicBtn.innerText = "⏸";
   }).catch(err => {
@@ -14,7 +14,7 @@ function openEnvelope() {
   });
 }
 
-// Musiqani to'xtatish yoki qayta yoqish
+// Musiqani to'xtatish/yoqish
 function toggleMusic() {
   if (bgMusic.paused) {
     bgMusic.play();
@@ -42,8 +42,8 @@ function copyCard() {
   alert("Karta raqami nusxalandi!");
 }
 
-// Taymer mantiqi (22-sentabr 2026-yil, Seshanba)
-const targetDate = new Date("September 22, 2026 18:00:00").getTime();
+// Taymer mantiqi (20-oktabr 2026-yil, Seshanba)
+const targetDate = new Date("October 20, 2026 18:00:00").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
