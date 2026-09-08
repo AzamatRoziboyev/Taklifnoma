@@ -3,169 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samandar & Dildora — To'y Taklifnomasi</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <link rel="stylesheet" href="/assetes/css/style.css">
+  <title>Taklifnoma — Samandar & Dildora</title>
+  <link rel="stylesheet" href="assetes/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <audio id="bg-music" loop preload="auto">
-    <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-wedding-483.mp3" type="audio/mpeg">
+  <!-- Musiqa manbasi -->
+  <audio id="bgMusic" loop>
+    <source src="Bolalar Kel yashaylik biz birga (1).mp3" type="audio/mpeg">
   </audio>
 
-  <div class="app-viewport">
-
-    <nav class="top-nav">
-      <button class="music-btn" id="musicBtn" aria-label="Music Toggle">
-        <span class="music-icon" id="musicIcon">⏸</span>
-      </button>
-      <div class="lang-capsule">
-        <button class="lang-btn active" data-lang="uz">UZ</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="ru">RU</button>
+  <div class="container">
+    
+    <!-- 1. KONVERT EKRANI -->
+    <div id="envelope-screen" class="screen">
+      <div class="lang-switch">
+        <span class="active">UZ</span> <span>EN</span> <span>RU</span>
       </div>
-    </nav>
-
-    <div class="envelope-screen" id="envelopeScreen">
-      <div class="envelope-wrapper">
-        <div class="envelope" id="envelope">
-          <div class="flap"></div>
-          <div class="pocket"></div>
-          <div class="wax-seal" id="waxSeal">
-            <div class="seal-inner">🌿</div>
-          </div>
+      <div class="envelope">
+        <div class="lace-border"></div>
+        <div class="seal" onclick="openEnvelope()">
+          <span class="seal-icon">🌿</span>
         </div>
-        <button class="open-btn" id="openBtn">
-          <span data-i18n="open_invitation">OCHISH UCHUN BOSING</span>
-        </button>
+        <p class="tap-text">OCHISH UCHUN BOSING</p>
       </div>
     </div>
 
-    <div class="invitation-container" id="invitationContent">
+    <!-- 2. ASOSIY TAKLIFNOMA EKRANI -->
+    <div id="main-screen" class="screen hidden">
+      
+      <!-- Musiqa tugmasi (pauza/play) -->
+      <button id="musicToggleBtn" class="music-control-btn" onclick="toggleMusic()">⏸</button>
 
-      <section class="hero-section">
-        <div class="hero-bg-overlay"></div>
-        <div class="hero-content">
-          <h1 class="couple-names">Samandar<br><span class="ampersand">&</span><br>Dildora</h1>
-          <div class="scroll-prompt" data-i18n="scroll_down">pastga suring ➔</div>
-        </div>
-      </section>
+      <!-- Muqova -->
+      <div class="hero-section">
+        <h1 class="names">Axrorbek<br>&<br>Nafisa</h1>
+        <p class="scroll-down">PASTGA SURING <span>↓</span></p>
+      </div>
 
-      <section class="section date-reveal-section reveal">
-        <p class="section-subtext" data-i18n="date_subtext">Davom etish uchun ushbu tugmani bosing</p>
-        <h2 class="calligraphy-title" data-i18n="open_date_title">Sanani oching</h2>
+      <!-- Sana bo'limi -->
+      <div class="card-section">
+        <p class="sub-title">Davom etish uchun barcha daftarlarni oching</p>
+        <h2>Sanani oching</h2>
+        <p class="small-note">SANANI BILISH UCHUN QIRING</p>
         
-        <p class="instruction-text" data-i18n="click_to_reveal">SANANI BILISH UCHUN QIRING</p>
+        <div class="scratch-coins">
+          <button class="coin" onclick="revealDate(1)">✦</button>
+          <button class="coin" onclick="revealDate(2)">✦</button>
+          <button class="coin" onclick="revealDate(3)">✦</button>
+        </div>
+
+        <div id="revealed-date" class="date-display hidden">
+          <div class="date-box"><span>22</span><span>Sentabr</span><span>2026</span></div>
+          <h3>SESHANBA<br>22 SENTABR 2026</h3>
+        </div>
+      </div>
+
+      <!-- Taklif matni -->
+      <div class="card-section message-card">
+        <h2>Aziz yaqinlarimiz!</h2>
+        <p>Sizni oilaviy baxtimiz boshlanadigan eng quvonchli kunimizda biz bilan birga bo'lishga taklif etamiz. Sizning tashrifingiz bu kunni yanada unutilmas qiladi.</p>
+      </div>
+
+      <!-- Qachon va qayerda -->
+      <div class="card-section">
+        <h2>Qachon va qayerda</h2>
+        <div class="venue-image">
+          <div class="hall-illustration">🏛️</div>
+        </div>
+        <h3 class="hall-title">JALILBEK TO'YXONASI</h3>
+        <p class="location-text">Xorazm v., Hazorasp tumani, Muxomon MFY</p>
+        <p class="time-text">18:00</p>
+
+        <div class="map-buttons">
+          <a href="https://yandex.uz/maps/org/jalilbek_to_yxona/105324835948/" target="_blank" class="btn-map">Yandex Xaritalar</a>
+          <a href="https://www.google.com/maps/search/Jalilbek+toyxonasi+Hazorasp" target="_blank" class="btn-map">Google Xaritalar</a>
+        </div>
+      </div>
+
+      <!-- To'yona bo'limi -->
+      <div class="card-section toyona-card">
+        <h2>To'yona</h2>
+        <p>Agar istasangiz, to'yonani kuyov kartasiga yuborishingiz mumkin:</p>
         
-        <div class="date-scratch-container" id="dateCards">
-          <div class="scratch-card" id="cardDay">
-            <span class="card-val">19</span>
-          </div>
-          <div class="scratch-card" id="cardMonth">
-            <span class="card-val">Sentabr</span>
-          </div>
-          <div class="scratch-card" id="cardYear">
-            <span class="card-val">2027</span>
-          </div>
+        <div class="card-info">
+          <p class="label">QABUL QILUVCHI</p>
+          <p class="val">Samandar</p>
+          <p class="label">KARTA RAQAMI</p>
+          <p class="card-number" id="cardNumber">8600 0000 0000 0000</p>
+          <button class="btn-copy" onclick="copyCard()">RAQAMNI NUSXALASH</button>
         </div>
+      </div>
 
-        <div class="revealed-date-box" id="revealedDateBox">
-          <p class="day-name" data-i18n="day_name">Yakshanba</p>
-          <p class="full-date">19 SENTABR 2027</p>
+      <!-- Taymer -->
+      <div class="card-section timer-section">
+        <h2>To'yimizgacha</h2>
+        <div class="timer">
+          <div class="time-box"><span id="days">00</span><p>KUN</p></div>
+          <div class="time-box"><span id="hours">00</span><p>SOAT</p></div>
+          <div class="time-box"><span id="minutes">00</span><p>DAQIQA</p></div>
+          <div class="time-box"><span id="seconds">00</span><p>SONIYA</p></div>
         </div>
-      </section>
-
-      <section class="section greeting-section reveal">
-        <div class="green-card">
-          <div class="birds-icon">🕊️🕊️</div>
-          <h3 class="greeting-title" data-i18n="dear_guests">Aziz yaqinlarimiz!</h3>
-          <p class="greeting-text" data-i18n="greeting_body">
-            Sizni oilaviy baxtimiz boshlanadigan eng quvonchli kunimizda biz bilan birga mehmondorchilikda taklif etamiz. Sizning tashrifingiz bu kunni yanada unutilmas qiladi.
-          </p>
-        </div>
-      </section>
-
-      <section class="section venue-section reveal">
-        <h2 class="calligraphy-title" data-i18n="when_where">Qachon va qayerda</h2>
-        
-        <div class="venue-building-card">
-          <div class="map-container">
-            <iframe src="https://yandex.uz/map-widget/v1/?text=Hazorasp%20Jalilbek%20toyxonasi" width="100%" height="180" frameborder="0" allowfullscreen="true" style="border-radius:12px;"></iframe>
-          </div>
-
-          <h3 class="venue-name">JALILBEK TO'YXONASI</h3>
-          <p class="venue-location" data-i18n="hall_location">Xorazm viloyati, Hazorasp tumani</p>
-          <div class="venue-time">18:00</div>
-
-          <div class="maps-btn-group">
-            <a href="https://yandex.uz/maps/?text=Hazorasp+Jalilbek+toyxonasi" target="_blank" class="map-btn yandex-btn" data-i18n="yandex_maps">Yandex Xaritalar ↗</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Hazorasp+Jalilbek+toyxonasi" target="_blank" class="map-btn google-btn" data-i18n="google_maps">Google Xaritalar ↗</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section gift-section reveal">
-        <h2 class="calligraphy-title" data-i18n="gift_title">To'yona</h2>
-        <p class="gift-subtitle" data-i18n="gift_desc">
-          Agar istasangiz, to'yonani kuyov kartasiga yuborishingiz mumkin:
-        </p>
-
-        <div class="card-box">
-          <div class="card-row">
-            <span class="card-label" data-i18n="recipient">QABUL QILUVCHI:</span>
-            <span class="card-val">Samandar</span>
-          </div>
-          <div class="card-row">
-            <span class="card-label" data-i18n="card_num">KARTA RAQAMI:</span>
-            <span class="card-number" id="cardNumber">8600 0000 0000 0000</span>
-          </div>
-          <button class="copy-btn" id="copyBtn" data-i18n="copy_btn">RAQAMNI NUSXALASH</button>
-          <div class="copy-notice" id="copyNotice" data-i18n="copied_notice">RAQAM NUSXALANDI ✓</div>
-
-          <div class="payment-apps">
-            <button class="pay-app-btn">Payme ↗</button>
-            <button class="pay-app-btn">Click ↗</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section timer-section reveal">
-        <h2 class="calligraphy-title" data-i18n="until_wedding">To'yimizgacha</h2>
-        
-        <div class="countdown-grid" id="countdownTimer">
-          <div class="timer-circle">
-            <span class="timer-num" id="days">00</span>
-            <span class="timer-lbl" data-i18n="lbl_days">KUN</span>
-          </div>
-          <div class="timer-circle">
-            <span class="timer-num" id="hours">00</span>
-            <span class="timer-lbl" data-i18n="lbl_hours">SOAT</span>
-          </div>
-          <div class="timer-circle">
-            <span class="timer-num" id="minutes">00</span>
-            <span class="timer-lbl" data-i18n="lbl_mins">DAQIQA</span>
-          </div>
-          <div class="timer-circle">
-            <span class="timer-num" id="seconds">00</span>
-            <span class="timer-lbl" data-i18n="lbl_secs">SONIYA</span>
-          </div>
-        </div>
-
-        <p class="timer-bottom-text" data-i18n="see_you_text">Siz bilan uchrashuvni intizorlik bilan kutamiz!</p>
-      </section>
-
-      <footer class="footer">
-        <p class="footer-brand">invitestudio.uz</p>
-      </footer>
+      </div>
 
     </div>
+
   </div>
 
-  <script src="/assetes/js/index.js"></script>
+  <script src="assetes/js/index.js"></script>
 </body>
 </html>
