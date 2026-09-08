@@ -3,87 +3,51 @@ const musicBtn = document.getElementById('musicToggleBtn');
 
 // Konvertni ochish va musiqani boshlash
 function openEnvelope() {
-  const envelope = document.getElementById('envelope');
+  document.getElementById('envelope-screen').classList.add('hidden');
+  document.getElementById('main-screen').classList.remove('hidden');
   
-  if (envelope) {
-    envelope.querySelector('.flap').style.transform = 'rotateX(180deg)';
-  }
-
-  setTimeout(() => {
-    document.getElementById('envelope-screen').classList.add('hidden');
-    document.getElementById('main-screen').classList.remove('hidden');
-
-    if (bgMusic) {
-      bgMusic.play().then(() => {
-        if (musicBtn) musicBtn.innerText = "⏸";
-      }).catch(err => {
-        console.log("Audio ijro etishda xatolik:", err);
-      });
-    }
-  }, 600);
+  // Musiqani ijro etish
+  bgMusic.play().then(() => {
+    musicBtn.innerText = "⏸";
+  }).catch(err => {
+    console.log("Audio ijro etishda xatolik:", err);
+  });
 }
 
 // Musiqani to'xtatish yoki qayta yoqish
 function toggleMusic() {
-  if (!bgMusic) return;
-  
   if (bgMusic.paused) {
     bgMusic.play();
-    if (musicBtn) musicBtn.innerText = "⏸";
+    musicBtn.innerText = "⏸";
   } else {
     bgMusic.pause();
-    if (musicBtn) musicBtn.innerText = "▶";
+    musicBtn.innerText = "▶";
   }
 }
 
 // Sanani ko'rsatish
-let clickedCoins = new Set();
-
+let clicks = 0;
 function revealDate(id) {
-  const coins = document.querySelectorAll('.scratch-coins .coin');
-  if (coins[id - 1]) {
-    coins[id - 1].style.visibility = 'hidden';
-  }
-  
-  clickedCoins.add(id);
-
-  if (clickedCoins.size >= 3) {
-    setTimeout(() => {
-      const scratchCoinsContainer = document.querySelector('.scratch-coins');
-      if (scratchCoinsContainer) scratchCoinsContainer.style.display = 'none';
-      
-      const revealedDate = document.getElementById('revealed-date');
-      if (revealedDate) revealedDate.classList.remove('hidden');
-    }, 300);
+  clicks++;
+  if (clicks >= 3) {
+    document.querySelector('.scratch-coins').style.display = 'none';
+    document.getElementById('revealed-date').classList.remove('hidden');
   }
 }
 
 // Karta raqamini nusxalash
 function copyCard() {
-  const cardNumEl = document.getElementById('cardNumber');
-  if (!cardNumEl) return;
-  
-  const cardNum = cardNumEl.innerText;
-  navigator.clipboard.writeText(cardNum.replace(/\s+/g, '')).then(() => {
-    alert("Karta raqami nusxalandi!");
-  }).catch(err => {
-    console.error("Nusxalashda xatolik:", err);
-  });
+  const cardNum = document.getElementById('cardNumber').innerText;
+  navigator.clipboard.writeText(cardNum.replace(/\s+/g, ''));
+  alert("Karta raqami nusxalandi!");
 }
 
-// Taymer mantiqi (22-sentabr 2026-yil, 18:00)
+// Taymer mantiqi (22-sentabr 2026-yil, Seshanba)
 const targetDate = new Date("September 22, 2026 18:00:00").getTime();
 
-function updateCountdown() {
+setInterval(() => {
   const now = new Date().getTime();
   const difference = targetDate - now;
-
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
-
-  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
   if (difference > 0) {
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -91,17 +55,14 @@ function updateCountdown() {
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    daysEl.innerText = days < 10 ? '0' + days : days;
-    hoursEl.innerText = hours < 10 ? '0' + hours : hours;
-    minutesEl.innerText = minutes < 10 ? '0' + minutes : minutes;
-    secondsEl.innerText = seconds < 10 ? '0' + seconds : seconds;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
   } else {
-    daysEl.innerText = "00";
-    hoursEl.innerText = "00";
-    minutesEl.innerText = "00";
-    secondsEl.innerText = "00";
+    document.getElementById("days").innerText = "00";
+    document.getElementById("hours").innerText = "00";
+    document.getElementById("minutes").innerText = "00";
+    document.getElementById("seconds").innerText = "00";
   }
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
+}, 1000);

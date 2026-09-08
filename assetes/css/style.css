@@ -21,12 +21,14 @@ body {
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   position: relative;
   overflow-x: hidden;
+
 }
 
 .screen {
   padding: 20px;
   text-align: center;
   position: relative;
+  padding: 10px
 }
 
 .hidden {
@@ -66,98 +68,39 @@ body {
   border-bottom: 1px solid #333;
 }
 
-/* Envelope Container */
-.envelope-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 35px;
-  margin-top: 80px;
-}
-
-/* Envelope */
+/* Envelope Screen */
 .envelope {
-  width: 280px;
-  height: 180px;
-  background-color: #ebd3df;
-  border-radius: 8px;
+  margin-top: 100px;
+  background: #f1e4d3;
+  border: 1px solid #d4c3b0;
+  border-radius: 12px;
+  padding: 60px 20px;
   position: relative;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.envelope .flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 140px solid transparent;
-  border-right: 140px solid transparent;
-  border-top: 100px solid #e3c5d4;
-  transform-origin: top;
-  transition: transform 0.6s ease;
-  z-index: 3;
-}
-
-.envelope .pocket {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 140px solid #ead0dd;
-  border-right: 140px solid #ead0dd;
-  border-bottom: 95px solid #dfc0cf;
-  border-radius: 0 0 8px 8px;
-  z-index: 2;
 }
 
 .seal {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
-  background: #b5a0a8;
+  width: 70px;
+  height: 70px;
+  background: #b5a48b;
   border-radius: 50%;
+  margin: 0 auto 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 28px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  z-index: 4;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
 }
 
 .seal:hover {
-  transform: translateX(-50%) scale(1.08);
-  background: #a38d96;
+  transform: scale(1.05);
 }
 
-.seal-icon {
-  font-size: 20px;
-}
-
-.open-btn {
-  background: #3b5249;
-  color: #ffffff;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 25px;
+.tap-text {
   font-size: 11px;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(59, 82, 73, 0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.open-btn:hover {
-  background: #2c3e37;
-  transform: translateY(-2px);
+  letter-spacing: 2px;
+  color: #666;
 }
 
 /* Hero Section */
@@ -218,11 +161,6 @@ body {
   font-size: 20px;
   color: #fff;
   cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.coin:hover {
-  transform: scale(1.05);
 }
 
 .date-box {
