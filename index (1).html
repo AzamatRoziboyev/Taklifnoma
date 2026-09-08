@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Malika &amp; Aziz — To'y taklifnomasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assetes/css/style (1).css">
+</head>
+<body>
+
+<!-- Top interactive bar -->
+<div class="top-bar">
+  <button class="music-btn" id="musicToggle" aria-label="Musiqa">
+    <svg id="musicIconOn" viewBox="0 0 24 24" width="18" height="18"><path d="M9 18V6l10-2v12" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.4" fill="none"/><circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+  </button>
+  <div class="lang-switch" id="langSwitch">
+    <button data-lang="uz" class="lang-btn active">UZ</button>
+    <span class="lang-sep">/</span>
+    <button data-lang="en" class="lang-btn">EN</button>
+    <span class="lang-sep">/</span>
+    <button data-lang="ru" class="lang-btn">RU</button>
+  </div>
+</div>
+
+<audio id="bgMusic" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-florals" aria-hidden="true">
+    <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#D8C7C0" stroke-width="1.2" opacity="0.55">
+        <path d="M20 60 C 40 20, 80 10, 100 40 C 110 60, 90 80, 60 75 C 80 100, 70 140, 40 150"/>
+        <path d="M30 55 C 45 35, 65 30, 78 45"/>
+        <ellipse cx="55" cy="42" rx="9" ry="4" transform="rotate(-30 55 42)"/>
+        <ellipse cx="70" cy="58" rx="8" ry="3.5" transform="rotate(20 70 58)"/>
+        <path d="M380 760 C 360 720, 320 715, 300 745 C 292 765, 312 785, 340 778 C 322 800, 332 820, 360 828"/>
+        <ellipse cx="345" cy="748" rx="9" ry="4" transform="rotate(30 345 748)"/>
+        <ellipse cx="330" cy="765" rx="8" ry="3.5" transform="rotate(-15 330 765)"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="script-line" data-i18n="hero.eyebrow">Sizni to'yimizga taklif qilamiz</p>
+
+    <h1 class="hero-names">
+      <span data-i18n="hero.bride">Malika</span>
+      <span class="amp">&amp;</span>
+      <span data-i18n="hero.groom">Aziz</span>
+    </h1>
+
+    <div class="ornament-line" aria-hidden="true">
+      <svg viewBox="0 0 200 20" width="140" height="14"><path d="M0 10 C 40 0, 60 20, 100 10 C 140 0, 160 20, 200 10" fill="none" stroke="#6E5A54" stroke-width="1"/><circle cx="100" cy="10" r="2.5" fill="#6E5A54"/></svg>
+    </div>
+
+    <p class="hero-date" data-i18n="hero.date">20 Dekabr, 2026</p>
+
+    <button class="btn-open" id="openInvitation">
+      <span data-i18n="hero.button">Taklifnomani ochish</span>
+    </button>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true"></div>
+</section>
+
+<!-- ============ MAIN INVITATION ============ -->
+<main class="invitation" id="invitation">
+
+  <!-- Welcome -->
+  <section class="section welcome fade-up">
+    <div class="leaf-divider" aria-hidden="true">
+      <svg viewBox="0 0 120 40" width="90" height="30"><path d="M60 38 C 60 20, 60 10, 60 2" stroke="#D8C7C0" stroke-width="1" fill="none"/><path d="M60 25 C 50 20, 42 22, 40 30 C 50 32, 58 30, 60 25" fill="#D8C7C0" opacity="0.7"/><path d="M60 15 C 70 10, 78 12, 80 20 C 70 22, 62 20, 60 15" fill="#D8C7C0" opacity="0.7"/></svg>
+    </div>
+    <p class="welcome-text" data-i18n="welcome.text">Sevgi ikki qalbni birlashtiradi, oila esa ularni abadiy bog'laydi. Ushbu maxsus kunda baxtimizni siz bilan baham ko'rishni istaymiz.</p>
+    <p class="welcome-script script-line" data-i18n="welcome.names">Malika va Aziz</p>
+  </section>
+
+  <!-- Date / Countdown -->
+  <section class="section date-section fade-up">
+    <h2 data-i18n="date.title">To'y sanasi</h2>
+
+    <div class="date-big">
+      <div class="date-part">
+        <span class="date-num" id="bigDay">20</span>
+      </div>
+      <div class="date-mid">
+        <span class="date-month" id="bigMonth" data-i18n="date.month">Dekabr</span>
+        <span class="date-year" id="bigYear">2026</span>
+      </div>
+    </div>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-item">
+        <span class="cd-num" id="cdDays">00</span>
+        <small data-i18n="countdown.days">kun</small>
+      </div>
+      <div class="cd-item">
+        <span class="cd-num" id="cdHours">00</span>
+        <small data-i18n="countdown.hours">soat</small>
+      </div>
+      <div class="cd-item">
+        <span class="cd-num" id="cdMinutes">00</span>
+        <small data-i18n="countdown.minutes">daqiqa</small>
+      </div>
+      <div class="cd-item">
+        <span class="cd-num" id="cdSeconds">00</span>
+        <small data-i18n="countdown.seconds">soniya</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue -->
+  <section class="section venue fade-up">
+    <h2 data-i18n="venue.title">To'y manzili</h2>
+    <p class="venue-name" data-i18n="venue.name">"Sultan Palace" to'yxonasi</p>
+    <p class="venue-address" id="venueAddress" data-i18n="venue.address">Toshkent shahri, Chilonzor tumani, Bunyodkor shoh ko'chasi 12</p>
+
+    <div class="map-frame" aria-hidden="true">
+      <svg viewBox="0 0 300 160" width="100%" height="100%">
+        <rect width="300" height="160" fill="#EDE3DF"/>
+        <path d="M0 100 C 60 60, 120 130, 180 90 C 220 65, 260 100, 300 80" stroke="#D8C7C0" stroke-width="6" fill="none" opacity="0.6"/>
+        <path d="M0 40 C 80 20, 160 55, 300 30" stroke="#D8C7C0" stroke-width="4" fill="none" opacity="0.4"/>
+        <circle cx="150" cy="85" r="7" fill="#6E5A54"/>
+        <path d="M150 85 L150 60" stroke="#6E5A54" stroke-width="2"/>
+        <circle cx="150" cy="58" r="4" fill="#6E5A54"/>
+      </svg>
+    </div>
+
+    <a class="btn-outline" id="mapBtn" href="#" target="_blank" rel="noopener">
+      <span data-i18n="venue.button">Xaritada ko'rish</span>
+    </a>
+  </section>
+
+  <!-- Gift / card -->
+  <section class="section gift fade-up">
+    <h2 data-i18n="gift.title">Tabriklar uchun</h2>
+    <p class="gift-recipient" data-i18n="gift.recipient">Qabul qiluvchi: Aziz Karimov</p>
+
+    <div class="card-box">
+      <div class="card-box-inner">
+        <span class="card-number" id="cardNumber">8600 1234 5678 9012</span>
+        <button class="copy-btn" id="copyBtn">
+          <span data-i18n="gift.copy">Nusxalash</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="section rsvp fade-up">
+    <h2 data-i18n="rsvp.title">Tashrifingizni tasdiqlang</h2>
+    <p class="rsvp-sub" data-i18n="rsvp.sub">Sizni kutamiz</p>
+
+    <form id="rsvpForm" novalidate>
+      <div class="field">
+        <input type="text" id="guestName" name="guestName" required>
+        <label for="guestName" data-i18n="rsvp.nameLabel">Ismingiz</label>
+      </div>
+      <div class="field">
+        <input type="tel" id="guestPhone" name="guestPhone" required>
+        <label for="guestPhone" data-i18n="rsvp.phoneLabel">Telefon raqamingiz</label>
+      </div>
+      <button type="submit" class="btn-rsvp" data-i18n="rsvp.button">Men boraman ❤️</button>
+    </form>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section gallery fade-up">
+    <h2 data-i18n="gallery.title">Fotolavha</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <button class="gallery-item g1" data-index="0" aria-label="Rasm 1"></button>
+      <button class="gallery-item g2" data-index="1" aria-label="Rasm 2"></button>
+      <button class="gallery-item g3" data-index="2" aria-label="Rasm 3"></button>
+      <button class="gallery-item g4" data-index="3" aria-label="Rasm 4"></button>
+      <button class="gallery-item g5" data-index="4" aria-label="Rasm 5"></button>
+      <button class="gallery-item g6" data-index="5" aria-label="Rasm 6"></button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="leaf-divider" aria-hidden="true">
+      <svg viewBox="0 0 120 40" width="90" height="30"><path d="M60 38 C 60 20, 60 10, 60 2" stroke="#D8C7C0" stroke-width="1" fill="none"/><path d="M60 25 C 50 20, 42 22, 40 30 C 50 32, 58 30, 60 25" fill="#D8C7C0" opacity="0.7"/><path d="M60 15 C 70 10, 78 12, 80 20 C 70 22, 62 20, 60 15" fill="#D8C7C0" opacity="0.7"/></svg>
+    </div>
+    <p class="footer-names script-line">Malika &amp; Aziz</p>
+    <p class="footer-note" data-i18n="footer.note">Sizni kutamiz</p>
+  </footer>
+
+</main>
+
+<!-- Gallery modal -->
+<div class="modal" id="galleryModal" aria-hidden="true">
+  <button class="modal-close" id="modalClose" aria-label="Yopish">&times;</button>
+  <div class="modal-img" id="modalImg"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="/assetes/js/script (1).js"></script>
+</body>
+</html>
