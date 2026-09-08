@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
 }
 
-/* DESKTOP PHONE MOCKUP FRAME */
+/* MOBIL FRAME */
 .app-viewport {
   width: 100%;
   max-width: 390px;

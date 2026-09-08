@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // TRANSLATIONS
+  // MULTILANG TRANSLATIONS
   const translations = {
     uz: {
       open_invitation: "OCHISH UCHUN BOSING",
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dear_guests: "Aziz yaqinlarimiz!",
       greeting_body: "Sizni oilaviy baxtimiz boshlanadigan eng quvonchli kunimizda biz bilan birga mehmondorchilikda taklif etamiz. Sizning tashrifingiz bu kunni yanada unutilmas qiladi.",
       when_where: "Qachon va qayerda",
-      hall_location: "Toshkent — Chilonzor tumani",
+      hall_location: "Xorazm viloyati, Hazorasp tumani",
       yandex_maps: "Yandex Xaritalar ↗",
       google_maps: "Google Xaritalar ↗",
       gift_title: "To'yona",
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dear_guests: "Dear guests!",
       greeting_body: "We cordially invite you to celebrate our special day with us. Your presence will make it unforgettable.",
       when_where: "When & Where",
-      hall_location: "Tashkent — Chilonzor district",
+      hall_location: "Khorezm region, Khazorasp district",
       yandex_maps: "Yandex Maps ↗",
       google_maps: "Google Maps ↗",
       gift_title: "Wedding Gift",
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dear_guests: "Dorogiye gosti!",
       greeting_body: "Priglashaem vas razdelit' s nami etot radostnyy den'. Vashe prisutstviye sdelaet ego nezabyvaemym.",
       when_where: "Gde i kogda",
-      hall_location: "Tashkent — Chilonzarskiy rayon",
+      hall_location: "Khorezmskaya oblast', Khazaraspskiy rayon",
       yandex_maps: "Yandex Karty ↗",
       google_maps: "Google Karty ↗",
       gift_title: "Podarok",
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // 1. ENVELOPE & MUSIC
+  // 1. ENVELOPE OPENING & FLOWER BURST
   const openBtn = document.getElementById('openBtn');
   const envelope = document.getElementById('envelope');
   const envelopeScreen = document.getElementById('envelopeScreen');
@@ -91,12 +91,41 @@ document.addEventListener('DOMContentLoaded', () => {
   let isPlaying = false;
 
   function shootFlowers() {
+    const flowerShapes = [
+      confetti.shapeFromText({ text: '🌸', scalar: 2 }),
+      confetti.shapeFromText({ text: '🌹', scalar: 2 }),
+      confetti.shapeFromText({ text: '🌺', scalar: 2 }),
+      confetti.shapeFromText({ text: '✨', scalar: 1.5 })
+    ];
+
     confetti({
-      particleCount: 40,
-      spread: 90,
-      origin: { y: 0.5 },
-      shapes: [confetti.shapeFromText({ text: '🌸', scalar: 2 }), confetti.shapeFromText({ text: '🌹', scalar: 2 })]
+      particleCount: 45,
+      spread: 100,
+      origin: { y: 0.5, x: 0.5 },
+      shapes: flowerShapes,
+      scalar: 2,
+      ticks: 200,
+      gravity: 0.6
     });
+
+    setTimeout(() => {
+      confetti({
+        particleCount: 30,
+        angle: 60,
+        spread: 80,
+        origin: { x: 0.2, y: 0.6 },
+        shapes: flowerShapes,
+        scalar: 1.8
+      });
+      confetti({
+        particleCount: 30,
+        angle: 120,
+        spread: 80,
+        origin: { x: 0.8, y: 0.6 },
+        shapes: flowerShapes,
+        scalar: 1.8
+      });
+    }, 400);
   }
 
   openBtn.addEventListener('click', () => {
