@@ -113,11 +113,7 @@ body {
   background: url('/photo_2026-09-09_14-04-54.jpg') center/cover;
   border-radius: 16px;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* gap: -55px; */
-  align-items: center;
+
 }
 /* .hero-section h1 {
   
