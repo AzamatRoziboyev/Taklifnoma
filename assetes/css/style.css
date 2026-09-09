@@ -140,6 +140,7 @@ body {
   width: 360px;
   height: 320px;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 .card-section h2 {
   font-family: 'Great Vibes', cursive;
