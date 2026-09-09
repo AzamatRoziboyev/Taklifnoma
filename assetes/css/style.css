@@ -109,20 +109,19 @@ body {
 
 /* Hero Section */
 .hero-section {
-  /* padding: 80px 0; */
+  padding: 60px 0;
   background: url('/photo_2026-09-09_14-04-54.jpg') center/cover;
   border-radius: 16px;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center; 
-  align-items: end;
-
-
-
+  gap: -55px;
+  align-items: center;
 }
-
+/* .hero-section h1 {
+  
+} */
 .names {
   font-family: 'DM Serif Display', serif;
   font-size: 52px;
