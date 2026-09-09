@@ -110,7 +110,7 @@ body {
 /* Hero Section */
 .hero-section {
   padding: 60px 0;
-  background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80') center/cover;
+  background: url('/image.png') center/cover;
   border-radius: 16px;
   color: white;
 
