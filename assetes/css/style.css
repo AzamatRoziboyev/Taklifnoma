@@ -136,7 +136,11 @@ body {
   margin-top: 25px;
   border: 1px solid #eae2d6;
 }
-
+.card-section .venue-image img {
+  width: 360px;
+  height: 320px;
+  border-radius: 10px;
+}
 .card-section h2 {
   font-family: 'Great Vibes', cursive;
   font-size: 36px;
