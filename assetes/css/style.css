@@ -145,7 +145,7 @@ body {
   height: 320px;
   border-radius: 10px;
   margin-bottom: 10px;
-  margin: auto;
+  /* margin: auto; */
 }
 .card-section h2 {
   font-family: 'Great Vibes', cursive;
