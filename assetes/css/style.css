@@ -109,15 +109,17 @@ body {
 
 /* Hero Section */
 .hero-section {
+  width: 400px;
+  height: 400px;
   padding: 60px 0;
   background: url('/photo_2026-09-09_14-04-54.jpg') center/cover;
   border-radius: 16px;
   color: white;
 
 }
-/* .hero-section h1 {
-  
-} */
+.hero-section h1 {
+  margin-top: 90px;
+}
 .names {
   font-family: 'DM Serif Display', serif;
   font-size: 52px;
