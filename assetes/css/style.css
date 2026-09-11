@@ -109,12 +109,13 @@ body {
 
 /* Hero Section */
 .hero-section {
-  width: 400px;
+  width: 380px;
   height: 400px;
   padding: 60px 0;
   background: url('/photo_2026-09-09_14-04-54.jpg') center/cover;
   border-radius: 16px;
   color: white;
+  margin: auto;
 
 }
 .hero-section h1 {
