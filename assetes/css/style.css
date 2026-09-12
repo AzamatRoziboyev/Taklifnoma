@@ -93,7 +93,13 @@ body {
   transition: transform 0.2s;
 }
 .seal .seal-icon {
-  color: gold;
+  margin: auto;
+  font-size: 50px;
+}
+.seal .seal-icon img {
+  width: 70px;
+  height: 70px;
+  margin: auto;
 }
 
 .seal:hover {
